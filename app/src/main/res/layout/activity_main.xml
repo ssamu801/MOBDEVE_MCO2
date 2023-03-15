@@ -16,12 +16,12 @@
         android:text="Pinsy"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/mapIv"
+        app:layout_constraintBottom_toTopOf="@id/imageIv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/mapIv"
+        android:id="@+id/imageIv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -38,9 +38,9 @@
         android:adjustViewBounds="true"
         android:layout_marginTop="230dp"
         android:layout_marginStart="190dp"
-        app:layout_constraintStart_toStartOf="@id/mapIv"
-        app:layout_constraintTop_toBottomOf="@id/mapIv"
-        app:layout_constraintTop_toTopOf="@id/mapIv"
+        app:layout_constraintStart_toStartOf="@id/imageIv"
+        app:layout_constraintTop_toBottomOf="@id/imageIv"
+        app:layout_constraintTop_toTopOf="@id/imageIv"
         app:srcCompat="@drawable/red_pin" />
 
     <LinearLayout
@@ -51,7 +51,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/addBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mapIv">
+        app:layout_constraintTop_toBottomOf="@id/imageIv">
 
 
         <ImageView
@@ -76,8 +76,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/black"
-        android:text="Add Pin"
         android:textColor="@color/white"
+        android:text="Add Pin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
