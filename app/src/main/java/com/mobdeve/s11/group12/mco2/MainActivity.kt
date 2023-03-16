@@ -7,6 +7,7 @@ import android.view.View
 import com.mobdeve.s11.group12.mco2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewBinding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)

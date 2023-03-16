@@ -3,9 +3,13 @@ package com.mobdeve.s11.group12.mco2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import com.mobdeve.s11.group12.mco2.databinding.ActivityNewEntryBinding
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
 class NewEntryActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -13,7 +17,7 @@ class NewEntryActivity : AppCompatActivity() {
         setContentView(viewBinding.root)
 
         //discard entry and go back to previous activity
-        viewBinding.discardButton.setOnClickListener(View.OnClickListener {
+        viewBinding.discardBtn.setOnClickListener(View.OnClickListener {
             finish()
         })
 
