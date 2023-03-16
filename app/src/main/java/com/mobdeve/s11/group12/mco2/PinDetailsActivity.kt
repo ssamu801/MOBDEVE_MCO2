@@ -11,6 +11,10 @@ class PinDetailsActivity : AppCompatActivity() {
         val viewBinding: PinDetailsBinding = PinDetailsBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
+        viewBinding.logoTv.setOnClickListener {
+            finish()
+        }
+
 
     }
 }
