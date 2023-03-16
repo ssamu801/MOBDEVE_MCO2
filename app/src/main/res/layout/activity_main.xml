@@ -31,6 +31,17 @@
         app:layout_constraintTop_toBottomOf="@id/logoTv"
         app:srcCompat="@drawable/map" />
 
+    <ImageButton
+        android:id="@+id/testBtn"
+        android:layout_width="18dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="196dp"
+        android:layout_marginTop="230dp"
+        android:background="@drawable/red_pin"
+        app:layout_constraintStart_toStartOf="@id/imageIv"
+        app:layout_constraintTop_toBottomOf="@id/imageIv"
+        app:layout_constraintTop_toTopOf="@id/imageIv" />
+
     <ImageView
         android:id="@+id/redPinIv"
         android:layout_width="25dp"
