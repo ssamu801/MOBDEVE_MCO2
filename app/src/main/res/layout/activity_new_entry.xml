@@ -5,19 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".NewEntryActivity" >
+    tools:context=".NewEntryActivity">
 
     <TextView
         android:id="@+id/logoTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginTop="15dp"
         android:text="Pinsy"
         android:textColor="#FFFFFF"
         android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/ll1"
+        app:layout_constraintBottom_toTopOf="@id/ll1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,10 +25,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginEnd="15dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/addPhotoIv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoTv">
 
@@ -56,9 +55,8 @@
     <ImageView
         android:id="@+id/addPhotoIv"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="25dp"
         android:layout_marginEnd="10dp"
         android:adjustViewBounds="false"
         android:background="#2E2E2E"
@@ -70,16 +68,16 @@
 
     <TextView
         android:id="@+id/postDateTv"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="03/12/2023"
         android:inputType="date"
         android:textColorHint="#FEFEFE"
-        app:layout_constraintBottom_toTopOf="@+id/postContentEt"
+        app:layout_constraintBottom_toTopOf="@id/postContentEt"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addPhotoIv" />
 
@@ -88,6 +86,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="#2E2E2E"
@@ -99,40 +98,43 @@
         android:textColor="#FEFEFE"
         android:textColorHint="#B4B2B2"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/saveEntryBtn"
+        app:layout_constraintBottom_toTopOf="@id/buttons"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/postDateTv" />
 
-    <Button
-        android:id="@+id/saveEntryBtn"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:backgroundTint="#328DEF"
-        android:shadowColor="#62AECE"
-        android:text="Save Entry"
-        android:textColor="#FEFEFE"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/discardBtn"
-        app:layout_constraintTop_toBottomOf="@+id/postContentEt"
-        app:layout_constraintVertical_bias="0.942" />
-
-    <Button
-        android:id="@+id/discardBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:backgroundTint="#FE0001"
-        android:shadowColor="#62AECE"
-        android:text="DISCARD"
-        android:textColor="#FEFEFE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/saveEntryBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postContentEt"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/postContentEt">
+
+        <Button
+            android:id="@+id/discardBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FE0001"
+            android:shadowColor="#62AECE"
+            android:text="DISCARD"
+            android:textColor="#FEFEFE" />
+
+        <Button
+            android:id="@+id/saveEntryBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:backgroundTint="#328DEF"
+            android:shadowColor="#62AECE"
+            android:text="Save Entry"
+            android:textColor="#FEFEFE" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
