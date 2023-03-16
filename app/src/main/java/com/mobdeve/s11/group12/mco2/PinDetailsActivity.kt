@@ -14,7 +14,5 @@ class PinDetailsActivity : AppCompatActivity() {
         viewBinding.logoTv.setOnClickListener {
             finish()
         }
-
-
     }
 }

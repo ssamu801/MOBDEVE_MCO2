@@ -60,7 +60,7 @@
             app:srcCompat="@drawable/white_pin" />
 
         <TextView
-            android:id="@+id/locationTv"
+            android:id="@+id/enterLocEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -74,9 +74,11 @@
         android:id="@+id/addBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:layout_marginBottom="15dp"
+        android:background="#09CA57"
         android:text="Add Pin"
         android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
