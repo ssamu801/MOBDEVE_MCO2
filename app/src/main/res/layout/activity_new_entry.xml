@@ -8,15 +8,16 @@
     tools:context=".NewEntryActivity" >
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/logoTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
-        android:text="Add an entry"
-        android:textColor="#FEFEFE"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/ll1"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="22dp"
+        android:text="Pinsy"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/ll1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,12 +26,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/logoTv">
 
 
         <ImageView
@@ -53,7 +54,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/addPhoto"
+        android:id="@+id/addPhotoIv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -61,14 +62,14 @@
         android:layout_marginEnd="10dp"
         android:adjustViewBounds="false"
         android:background="#2E2E2E"
-        app:layout_constraintBottom_toTopOf="@id/postDate"
+        app:layout_constraintBottom_toTopOf="@id/postDateTv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll1"
         app:srcCompat="@drawable/addphoto" />
 
     <TextView
-        android:id="@+id/postDate"
+        android:id="@+id/postDateTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -78,12 +79,12 @@
         android:hint="03/12/2023"
         android:inputType="date"
         android:textColorHint="#FEFEFE"
-        app:layout_constraintBottom_toTopOf="@+id/postContent"
+        app:layout_constraintBottom_toTopOf="@+id/postContentEt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPhoto" />
+        app:layout_constraintTop_toBottomOf="@+id/addPhotoIv" />
 
     <EditText
-        android:id="@+id/postContent"
+        android:id="@+id/postContentEt"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
@@ -98,14 +99,14 @@
         android:textColor="#FEFEFE"
         android:textColorHint="#B4B2B2"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/saveButton"
+        app:layout_constraintBottom_toTopOf="@id/saveEntryBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/postDate" />
+        app:layout_constraintTop_toBottomOf="@id/postDateTv" />
 
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/saveEntryBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
@@ -115,12 +116,12 @@
         android:textColor="#FEFEFE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/discardButton"
-        app:layout_constraintTop_toBottomOf="@+id/postContent"
+        app:layout_constraintStart_toEndOf="@id/discardBtn"
+        app:layout_constraintTop_toBottomOf="@+id/postContentEt"
         app:layout_constraintVertical_bias="0.942" />
 
     <Button
-        android:id="@+id/discardButton"
+        android:id="@+id/discardBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
@@ -129,9 +130,9 @@
         android:text="DISCARD"
         android:textColor="#FEFEFE"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/saveButton"
+        app:layout_constraintEnd_toStartOf="@+id/saveEntryBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postContent"
+        app:layout_constraintTop_toBottomOf="@+id/postContentEt"
         app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
