@@ -25,19 +25,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        app:layout_constraintTop_toBottomOf="@id/logoTv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/ll1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoTv"
         app:srcCompat="@drawable/map" />
 
     <ImageView
         android:id="@+id/redPinIv"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:adjustViewBounds="true"
-        android:layout_marginTop="230dp"
         android:layout_marginStart="190dp"
+        android:layout_marginTop="230dp"
+        android:adjustViewBounds="true"
         app:layout_constraintStart_toStartOf="@id/imageIv"
         app:layout_constraintTop_toBottomOf="@id/imageIv"
         app:layout_constraintTop_toTopOf="@id/imageIv"
@@ -64,8 +64,8 @@
             android:id="@+id/locationTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="De La Salle University"
             android:layout_marginStart="5dp"
+            android:text="De La Salle University"
             android:textColor="#FFFFFF" />
 
     </LinearLayout>
@@ -76,8 +76,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/black"
-        android:textColor="@color/white"
         android:text="Add Pin"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
