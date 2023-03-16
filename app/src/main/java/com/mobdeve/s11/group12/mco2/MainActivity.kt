@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         val viewBinding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        viewBinding.testBtn.setOnClickListener {
+        viewBinding.redPinBtn.setOnClickListener {
 
             val intent = Intent(applicationContext, PinDetailsActivity::class.java)
             this.startActivity(intent);

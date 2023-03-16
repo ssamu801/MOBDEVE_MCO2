@@ -32,7 +32,7 @@
         app:srcCompat="@drawable/map" />
 
     <ImageButton
-        android:id="@+id/testBtn"
+        android:id="@+id/redPinBtn"
         android:layout_width="18dp"
         android:layout_height="25dp"
         android:layout_marginStart="196dp"
@@ -41,18 +41,6 @@
         app:layout_constraintStart_toStartOf="@id/imageIv"
         app:layout_constraintTop_toBottomOf="@id/imageIv"
         app:layout_constraintTop_toTopOf="@id/imageIv" />
-
-    <ImageView
-        android:id="@+id/redPinIv"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="190dp"
-        android:layout_marginTop="230dp"
-        android:adjustViewBounds="true"
-        app:layout_constraintStart_toStartOf="@id/imageIv"
-        app:layout_constraintTop_toBottomOf="@id/imageIv"
-        app:layout_constraintTop_toTopOf="@id/imageIv"
-        app:srcCompat="@drawable/red_pin" />
 
     <LinearLayout
         android:id="@+id/ll1"
