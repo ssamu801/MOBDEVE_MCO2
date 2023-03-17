@@ -1,5 +1,6 @@
 package com.mobdeve.s11.group12.mco2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -21,14 +22,11 @@ class NewEntryActivity : AppCompatActivity() {
             finish()
         })
 
-        /*
-        //save entry
-        viewBinding.saveButton.setOnClickListener(View.OnClickListener {
-            if(viewBinding.enterLocEt.text.toString().isNotEmpty()) {
-                //code
-            }
+        //save entry and go to pin details
+        viewBinding.saveEntryBtn.setOnClickListener(View.OnClickListener {
+            val intent : Intent = Intent(this@NewEntryActivity, PinDetailsActivity::class.java)
+            this.startActivity(intent);
         })
-         */
 
     }
 }
