@@ -25,6 +25,7 @@ class NewEntryActivity : AppCompatActivity() {
         //save entry and go to pin details
         viewBinding.saveEntryBtn.setOnClickListener(View.OnClickListener {
             val intent : Intent = Intent(this@NewEntryActivity, PinDetailsActivity::class.java)
+            finish()
             this.startActivity(intent);
         })
 
