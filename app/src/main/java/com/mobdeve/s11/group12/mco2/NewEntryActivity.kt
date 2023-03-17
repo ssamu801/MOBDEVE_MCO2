@@ -17,12 +17,17 @@ class NewEntryActivity : AppCompatActivity() {
         val viewBinding : ActivityNewEntryBinding = ActivityNewEntryBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        //discard entry and go back to previous activity
+        // go back to home page when logo is pressed
+        viewBinding.logoTv.setOnClickListener {
+            finish()
+        }
+
+        // discard entry and go back to previous activity
         viewBinding.discardBtn.setOnClickListener(View.OnClickListener {
             finish()
         })
 
-        //save entry and go to pin details
+        // save entry and go to pin details
         viewBinding.saveEntryBtn.setOnClickListener(View.OnClickListener {
             val intent : Intent = Intent(this@NewEntryActivity, PinDetailsActivity::class.java)
             finish()
