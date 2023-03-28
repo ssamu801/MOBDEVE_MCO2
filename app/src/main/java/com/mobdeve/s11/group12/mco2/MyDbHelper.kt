@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class MyDbHelper(context: Context?) : SQLiteOpenHelper(context, DbReferences.DATABASE_NAME, null, DbReferences.DATABASE_VERSION) {
 
-    // The singleton pattern design
     companion object {
         private var instance: MyDbHelper? = null
 
@@ -25,7 +24,6 @@ class MyDbHelper(context: Context?) : SQLiteOpenHelper(context, DbReferences.DAT
         sqLiteDatabase.execSQL(DbReferences.CREATE_TABLE_STATEMENT)
     }
 
-    // Called when a new version of the DB is present; hence, an "upgrade" to a newer version
     override fun onUpgrade(sqLiteDatabase: SQLiteDatabase, i: Int, i1: Int) {
         sqLiteDatabase.execSQL(DbReferences.DROP_TABLE_STATEMENT)
         onCreate(sqLiteDatabase)
@@ -68,15 +66,13 @@ class MyDbHelper(context: Context?) : SQLiteOpenHelper(context, DbReferences.DAT
 
         val database = this.writableDatabase
 
-        // Create a new map of values, where column names are the keys
+
         val values = ContentValues()
         values.put(DbReferences.COLUMN_NAME_ENTRY_LOCATION, e.entryLocation)
         values.put(DbReferences.COLUMN_NAME_ENTRY_DATE, e.entryDate)
         values.put(DbReferences.COLUMN_NAME_ENTRY_CONTENT, e.entryContent)
         values.put(DbReferences.COLUMN_NAME_IMAGE_URI, e.imageUri)
 
-        // Insert the new row
-        // Inserting returns the primary key value of the new row, but we can ignore that if we don’t need it
         val id = database.insert(DbReferences.TABLE_NAME, null, values)
         database.close()
 
