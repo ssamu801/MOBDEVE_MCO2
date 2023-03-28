@@ -29,7 +29,7 @@ class MyDbHelper(context: Context?) : SQLiteOpenHelper(context, DbReferences.DAT
         onCreate(sqLiteDatabase)
     }
 
-    fun getAllContactsDefault(): ArrayList<Entry>  {
+    fun getAllEntriesDefault(): ArrayList<Entry>  {
         val database: SQLiteDatabase = this.readableDatabase
 
         val e : Cursor = database.query(
