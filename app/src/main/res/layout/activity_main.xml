@@ -37,23 +37,15 @@
             app:layout_constraintTop_toBottomOf="@id/logoTv"
             android:layout_weight="0.7">
 
-            <ImageView
-                android:id="@+id/imageIv"
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/map"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:layout_marginTop="15dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/map" />
-
-            <ImageButton
-                android:id="@+id/redPinBtn"
-                android:layout_width="18dp"
-                android:layout_height="25dp"
-                android:layout_marginBottom="20dp"
-                android:layout_gravity="center"
-                android:background="@drawable/red_pin" />
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                android:name="com.google.android.gms.maps.SupportMapFragment"/>
 
         </FrameLayout>
 
@@ -68,21 +60,6 @@
             app:layout_constraintBottom_toTopOf="@id/addBtn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fl1">
-
-
-            <ImageView
-                android:id="@+id/whitePinIv"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                app:srcCompat="@drawable/white_pin" />
-
-            <TextView
-                android:id="@+id/enterLocEt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="De La Salle University"
-                android:textColor="#FFFFFF" />
 
         </LinearLayout>
 
