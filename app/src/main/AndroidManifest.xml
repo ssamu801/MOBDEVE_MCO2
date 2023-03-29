@@ -14,6 +14,12 @@
         android:theme="@style/Theme.MCO2_Group12"
         tools:targetApi="31">
         <activity
+            android:name=".UPGardenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OceanParkActivity"
+            android:exported="false" />
+        <activity
             android:name=".PinDetailsActivity"
             android:exported="false" />
         <activity

@@ -30,11 +30,13 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
             // location coordinates
             val dlsu = LatLng (14.565076303597651, 120.99317101760982)
-            val eiffel = LatLng (48.85846537223444, 2.294492026983259)
+            val up_garden = LatLng (14.655474657625552, 121.07190917101809)
+            val oceanPark = LatLng (14.579377175831764, 120.97277877266487)
 
             // adding of markers to the locations
             googleMap.addMarker(MarkerOptions().position(dlsu).title("DLSU"))
-            googleMap.addMarker(MarkerOptions().position(eiffel).title("EIFFEL TOWER"))
+            googleMap.addMarker(MarkerOptions().position(up_garden).title("UP SUNKEN GARDEN"))
+            googleMap.addMarker(MarkerOptions().position(oceanPark).title("MANILA OCEAN PARK"))
 
             // move the camera towards a location
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(dlsu))
@@ -43,8 +45,21 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             googleMap.setOnMarkerClickListener { marker: Marker ->
 
                 Toast.makeText(this, "Clicked location is " + marker.title + ". ID: " + marker.id, Toast.LENGTH_SHORT).show()
-                val intent = Intent(applicationContext, PinDetailsActivity::class.java)
-                this.startActivity(intent);
+
+               if(marker.position == dlsu){
+                   val intent = Intent(applicationContext, PinDetailsActivity::class.java)
+                   this.startActivity(intent);
+               }
+                else if (marker.position == oceanPark){
+                   val intent = Intent(applicationContext, OceanParkActivity::class.java)
+                   this.startActivity(intent);
+
+                }
+                else if(marker.position == up_garden){
+                   val intent = Intent(applicationContext, UPGardenActivity::class.java)
+                   this.startActivity(intent);
+               }
+
 
                 false
             }

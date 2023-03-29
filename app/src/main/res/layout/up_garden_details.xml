@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".PinDetailsActivity">
+    tools:context=".UPGardenActivity">
 
 
     <TextView
@@ -45,7 +45,7 @@
             android:layout_marginStart="15dp"
             android:layout_weight="2"
             android:layout_marginTop="3dp"
-            android:text="De La Salle University"
+            android:text="Up Sunken Garden"
             app:layout_constraintStart_toEndOf="@id/enterLocEt"
             app:layout_constraintTop_toTopOf="parent"
             android:textColor="#FFFFFF"
@@ -67,14 +67,13 @@
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="2dp"
-        android:adjustViewBounds="false"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/notesEt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll1"
-        app:srcCompat="@drawable/dlsu" />
+        app:srcCompat="@drawable/up_sunken_garden" />
 
     <EditText
         android:id="@+id/notesEt"
@@ -84,7 +83,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="24dp"
-        android:text="This was a really nice university! I hope I get the chance to study here in the future!"
+        android:text="I visited my friend today in her university! We had fun hanging around here!"
         android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/saveBtn"
