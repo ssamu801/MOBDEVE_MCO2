@@ -40,11 +40,13 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
             // move the camera towards a location
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(dlsu))
+            googleMap.animateCamera(CameraUpdateFactory.zoomTo(11.0f))
 
             // set listeners on markers
             googleMap.setOnMarkerClickListener { marker: Marker ->
 
-                Toast.makeText(this, "Clicked location is " + marker.title + ". ID: " + marker.id, Toast.LENGTH_SHORT).show()
+                // Display the title and id of marker clicked
+                // Toast.makeText(this, "Clicked location is " + marker.title + ". ID: " + marker.id, Toast.LENGTH_SHORT).show()
 
                if(marker.position == dlsu){
                    val intent = Intent(applicationContext, PinDetailsActivity::class.java)
