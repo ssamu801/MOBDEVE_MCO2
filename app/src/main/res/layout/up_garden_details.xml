@@ -43,13 +43,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_weight="2"
             android:layout_marginTop="3dp"
-            android:text="Up Sunken Garden"
-            app:layout_constraintStart_toEndOf="@id/enterLocEt"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_weight="2"
+            android:text="UP Sunken Garden"
             android:textColor="#FFFFFF"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@id/enterLocEt"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/deleteBtn"

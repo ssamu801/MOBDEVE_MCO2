@@ -12,6 +12,7 @@
         android:id="@+id/logoTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:layout_marginStart="15dp"
         android:text="Pinsy"
         android:textColor="#FFFFFF"
@@ -24,12 +25,11 @@
         android:id="@+id/ll1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="75dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoTv"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/logoTv">
 
 
         <ImageView
@@ -38,14 +38,13 @@
             android:layout_height="match_parent"
             app:srcCompat="@drawable/white_pin" />
 
-        <TextView
+        <EditText
             android:id="@+id/enterLocEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_weight="2"
-            android:layout_marginTop="3dp"
-            android:text="De La Salle University"
+            android:text="TextView"
             app:layout_constraintStart_toEndOf="@id/enterLocEt"
             app:layout_constraintTop_toTopOf="parent"
             android:textColor="#FFFFFF"
@@ -61,11 +60,20 @@
 
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/notesDateTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll1"
+        android:textColor="#FFFFFF" />
+
     <ImageView
         android:id="@+id/pictureIv"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="2dp"
         android:adjustViewBounds="false"
         android:scaleType="fitCenter"
@@ -73,38 +81,57 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll1"
-        app:srcCompat="@drawable/dlsu" />
+        app:layout_constraintTop_toBottomOf="@id/notesDateTv"
+         />
 
     <EditText
         android:id="@+id/notesEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="24dp"
-        android:text="This was a really nice university! I hope I get the chance to study here in the future!"
+        android:text="TextView"
         android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/saveBtn"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pictureIv" />
 
-    <Button
-        android:id="@+id/saveBtn"
-        android:layout_width="64dp"
-        android:layout_height="42dp"
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:background="@color/white"
-        android:text="SAVE"
-        android:textColor="@color/black"
-        android:textSize="16sp"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/notesEt" />
+        app:layout_constraintTop_toBottomOf="@+id/notesEt">
+
+        <Button
+            android:id="@+id/selectBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#328DEF"
+            android:text="SELECT IMAGE"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:backgroundTint="#1E6E35"
+            android:shadowColor="#62AECE"
+            android:text="SAVE"
+            android:textColor="#FEFEFE" />
+
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

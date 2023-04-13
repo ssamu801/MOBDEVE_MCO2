@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MCO2_Group12</string>
+    <string name="app_name">MCO4_Beta</string>
     <string name="title_activity_view_pin">ViewPinActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
