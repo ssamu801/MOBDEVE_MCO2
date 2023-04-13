@@ -246,7 +246,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 if(write && read){
                     Log.d(TAG, "onRequestPermissionResult: External Storage Permission granted")
-                    //indicator here
                 }
                 else{
                     Log.d(TAG, "onRequestPermissionResult: External Storage Permission denied")

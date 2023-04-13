@@ -57,7 +57,7 @@ class PinDetailsActivity : AppCompatActivity() {
             entries = myDbHelper.getAllEntriesDefault()
         }
 
-        var id = this.intent.getLongExtra("DETAILS_ID", -1L)
+        val id = this.intent.getLongExtra("DETAILS_ID", -1L)
         val latitude = this.intent.getDoubleExtra("DETAILS_LATITUDE", 0.0)
         val longitude = this.intent.getDoubleExtra("DETAILS_LONGITUDE", 0.0)
         val location = this.intent.getStringExtra("DETAILS_LOCATION")
@@ -68,8 +68,6 @@ class PinDetailsActivity : AppCompatActivity() {
         imageUri = Uri.parse(this.intent.getStringExtra("DETAILS_IMAGE_URI"))
         Picasso.get().load(imageUri).into(this.viewBinding.pictureIv)
         this.viewBinding.notesEt.setText(notes)
-
-        println(id)
 
         // go back to home page when logo is pressed
         viewBinding.logoTv.setOnClickListener {
@@ -103,7 +101,7 @@ class PinDetailsActivity : AppCompatActivity() {
 
                 imageUri = Uri.fromFile(file)
 
-                    executorService.execute {
+                executorService.execute {
                         val myDbHelper = MyDbHelper.getInstance(this@PinDetailsActivity)
                         myDbHelper!!.editEntry(Entry(
                             latitude,
@@ -124,9 +122,7 @@ class PinDetailsActivity : AppCompatActivity() {
             }
 
 
-
         })
-
 
 
         viewBinding.deleteBtn.setOnClickListener {
