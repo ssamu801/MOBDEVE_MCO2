@@ -1,13 +1,18 @@
 package com.mobdeve.s11.group12.mco2
 
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.mobdeve.s11.group12.mco2.databinding.ActivityMainBinding
 import com.google.android.gms.maps.GoogleMap
@@ -29,6 +34,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     lateinit var mapFragment : SupportMapFragment
     lateinit var googleMap : GoogleMap
+
+    private companion object{
+        private const val STORAGE_PERMISSION_CODE = 100
+        private const val TAG = "PERMISSION_TAG"
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -123,23 +133,13 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         })
 
 
-        if(Build.VERSION.SDK_INT >= 30){
-            if (!Environment.isExternalStorageManager()){
-                viewBinding.addBtn.setOnClickListener(View.OnClickListener {
-                    val intent : Intent = Intent()
-                    intent.setAction(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION)
-                    Toast.makeText(this, "Please enable permission", Toast.LENGTH_SHORT).show()
-                    this.startActivity(intent);
-
-                })
-            }
-            else{
-                //add new entry
-                viewBinding.addBtn.setOnClickListener(View.OnClickListener {
-                    if(tempLat == null && tempLong == null){
-                        Toast.makeText(this, "Select a location to pin", Toast.LENGTH_LONG).show()
-                    }
-                    else{
+            //add new entry
+            viewBinding.addBtn.setOnClickListener(View.OnClickListener {
+                if(tempLat == null && tempLong == null){
+                    Toast.makeText(this, "Select a location to pin", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    if (checkPermission()){
                         tempMarker!!.remove()
                         val intent : Intent = Intent(this@MainActivity, NewEntryActivity::class.java)
                         intent.putExtra("LATITUDE", tempLat)
@@ -148,26 +148,16 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                         tempLong = null
                         this.startActivity(intent);
                     }
-                })
-            }
-        }
-        else{
-            //add new entry
-            viewBinding.addBtn.setOnClickListener(View.OnClickListener {
-                if(tempLat == null && tempLong == null){
-                    Toast.makeText(this, "Select a location to pin", Toast.LENGTH_LONG).show()
-                }
-                else{
-                    tempMarker!!.remove()
-                    val intent : Intent = Intent(this@MainActivity, NewEntryActivity::class.java)
-                    intent.putExtra("LATITUDE", tempLat)
-                    intent.putExtra("LONGITUDE", tempLong)
-                    tempLat = null
-                    tempLong = null
-                    this.startActivity(intent);
+                    else{
+                        tempLat = null
+                        tempLong = null
+                        Toast.makeText(this, "Please enable permission", Toast.LENGTH_SHORT).show()
+                        requestPermission()
+                    }
+
                 }
             })
-        }
+
 
 
     }
@@ -200,11 +190,69 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
         })
 
+
     }
+
 
     override fun onMapReady(p0: GoogleMap) {
         TODO("Not yet implemented")
     }
 
+    private fun requestPermission(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
+            try {
+                val intent = Intent()
+                intent.action = Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION
+                val uri = Uri.fromParts("package", this.packageName, null)
+                intent.data = uri
+                this.startActivity(intent)
+            }
+            catch (e: Exception){
+                Log.e(TAG, "requestPermission:", e)
+                val intent = Intent()
+                intent.action = Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION
+                this.startActivity(intent)
+            }
+        }
+        else{
+            ActivityCompat.requestPermissions(this,
+            arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                STORAGE_PERMISSION_CODE
+            )
+        }
+    }
 
+    private fun checkPermission(): Boolean{
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
+            Environment.isExternalStorageManager()
+        }
+        else{
+            val write = ContextCompat.checkSelfPermission(this,android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            val read = ContextCompat.checkSelfPermission(this,android.Manifest.permission.READ_EXTERNAL_STORAGE)
+            write == PackageManager.PERMISSION_GRANTED && read == PackageManager.PERMISSION_GRANTED
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(requestCode == STORAGE_PERMISSION_CODE){
+            if (grantResults.isNotEmpty()){
+                val write = grantResults[0] == PackageManager.PERMISSION_GRANTED
+                val read = grantResults[0] == PackageManager.PERMISSION_GRANTED
+
+                if(write && read){
+                    Log.d(TAG, "onRequestPermissionResult: External Storage Permission granted")
+                    //indicator here
+                }
+                else{
+                    Log.d(TAG, "onRequestPermissionResult: External Storage Permission denied")
+                    Toast.makeText(this, "External Storage Permission denied.", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
 }

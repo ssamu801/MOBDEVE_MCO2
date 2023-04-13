@@ -104,7 +104,7 @@ class NewEntryActivity : AppCompatActivity() {
                 executorService.execute {
                     // This is logic for adding a Contact
                     myDbHelper = MyDbHelper.getInstance(this@NewEntryActivity)!!
-                    myDbHelper.insertEntry(Entry(
+                    val id = myDbHelper.insertEntry(Entry(
                         latitude,
                         longitude,
                         this.viewBinding.enterLocEt.text.toString(),
@@ -113,17 +113,19 @@ class NewEntryActivity : AppCompatActivity() {
                         imageUri.toString()
                     ))
 
+                    val intent : Intent = Intent(this@NewEntryActivity, PinDetailsActivity::class.java)
+                    intent.putExtra("DETAILS_LATITUDE", latitude)
+                    intent.putExtra("DETAILS_LONGITUDE", longitude)
+                    intent.putExtra("DETAILS_LOCATION", this.viewBinding.enterLocEt.text.toString())
+                    intent.putExtra("DETAILS_DATE", this.viewBinding.postDateEt.text.toString())
+                    intent.putExtra("DETAILS_NOTES", this.viewBinding.postContentEt.text.toString())
+                    intent.putExtra("DETAILS_IMAGE_URI", imageUri.toString())
+                    intent.putExtra("DETAILS_ID", id)
+                    finish()
+                    this.startActivity(intent)
                 }
 
-                val intent : Intent = Intent(this@NewEntryActivity, PinDetailsActivity::class.java)
-                intent.putExtra("DETAILS_LATITUDE", latitude)
-                intent.putExtra("DETAILS_LONGITUDE", longitude)
-                intent.putExtra("DETAILS_LOCATION", this.viewBinding.enterLocEt.text.toString())
-                intent.putExtra("DETAILS_DATE", this.viewBinding.postDateEt.text.toString())
-                intent.putExtra("DETAILS_NOTES", this.viewBinding.postContentEt.text.toString())
-                intent.putExtra("DETAILS_IMAGE_URI", imageUri.toString())
-                finish()
-                this.startActivity(intent)
+
             }
             else{
                 Toast.makeText(view.context, "Please fill up all fields", Toast.LENGTH_LONG).show()

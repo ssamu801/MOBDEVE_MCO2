@@ -102,27 +102,7 @@ class PinDetailsActivity : AppCompatActivity() {
                 imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
 
                 imageUri = Uri.fromFile(file)
-                if (id != 1L){
-                    executorService.execute {
-                        val myDbHelper = MyDbHelper.getInstance(this@PinDetailsActivity)
-                        println(entries.size-1)
-                        println(entries[entries.size-1].id)
-                        id = entries[entries.size-1].id
-                        myDbHelper!!.editEntry(Entry(
-                            latitude,
-                            longitude,
-                            this.viewBinding.enterLocEt.text.toString(),
-                            this.viewBinding.notesDateTv.text.toString(),
-                            this.viewBinding.notesEt.text.toString(),
-                            imageUri.toString(),
-                            id
-                        ))
-                        finish()
 
-                    }
-
-                }
-                else{
                     executorService.execute {
                         val myDbHelper = MyDbHelper.getInstance(this@PinDetailsActivity)
                         myDbHelper!!.editEntry(Entry(
@@ -136,7 +116,6 @@ class PinDetailsActivity : AppCompatActivity() {
                         ))
                         finish()
 
-                    }
                 }
 
             }
@@ -151,42 +130,21 @@ class PinDetailsActivity : AppCompatActivity() {
 
 
         viewBinding.deleteBtn.setOnClickListener {
-            if (id != 1L){
-                executorService.execute {
-                    val myDbHelper = MyDbHelper.getInstance(this@PinDetailsActivity)
-                    println(entries.size-1)
-                    println(entries[entries.size-1].id)
-                    id = entries[entries.size-1].id
-                    myDbHelper!!.deleteEntry(Entry(
-                        latitude,
-                        longitude,
-                        location.toString(),
-                        date.toString(),
-                        notes.toString(),
-                        imageUri.toString(),
-                        id
-                    ))
-                    finish()
-
-                }
+            executorService.execute {
+                val myDbHelper = MyDbHelper.getInstance(this@PinDetailsActivity)
+                myDbHelper!!.deleteEntry(Entry(
+                    latitude,
+                    longitude,
+                    location.toString(),
+                    date.toString(),
+                    notes.toString(),
+                    imageUri.toString(),
+                    id
+                ))
+                finish()
 
             }
-            else{
-                executorService.execute {
-                    val myDbHelper = MyDbHelper.getInstance(this@PinDetailsActivity)
-                    myDbHelper!!.deleteEntry(Entry(
-                        latitude,
-                        longitude,
-                        location.toString(),
-                        date.toString(),
-                        notes.toString(),
-                        imageUri.toString(),
-                        id
-                    ))
-                    finish()
 
-                }
-            }
 
         }
     }
