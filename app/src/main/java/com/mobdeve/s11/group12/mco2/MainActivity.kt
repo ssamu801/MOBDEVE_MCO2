@@ -149,6 +149,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                         this.startActivity(intent);
                     }
                     else{
+                        tempMarker!!.remove()
                         tempLat = null
                         tempLong = null
                         Toast.makeText(this, "Please enable permission", Toast.LENGTH_SHORT).show()
